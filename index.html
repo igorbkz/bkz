@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Textura de Pedra Escura</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #d0d0d0;
+            --accent-color: #808080;
+            --link-color: #a0a0a0;
+            --post-bg-color: rgba(40, 40, 40, 0.7);
+            --border-color: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+            background-attachment: fixed;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: var(--link-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid var(--link-color);
+        }
+
+        .post {
+            background-color: var(--post-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .post-content {
+            margin-bottom: 15px;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            filter: grayscale(30%) brightness(0.8);
+        }
+
+        .post-content a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--link-color);
+        }
+
+        .post-content a:hover {
+            border-bottom: 1px solid var(--link-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .post h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>igor</h1>
+        <nav>
+            <a href="https://genartx.vercel.app/">GenArt</a>
+            <a href="https://flowintel.vercel.app/">Mixtral</a>
+            <a href="https://flowcorp.vercel.app/">Flow</a>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post">
+            <h2>Nós somos o universo</h2>
+            <div class="post-content">
+                <img src="images/universo.jpg" alt="Imagem representando o universo">
+                <p>Nós somos o próprio universo em sua forma mais consciente e experiencial. Cada átomo em nossos corpos é forjado nas estrelas, e nossa existência é uma continuação da mesma energia que dá vida ao cosmos. 
+                    Quando olhamos para o céu e nos maravilhamos com sua vastidão, também olhamos para dentro de nós mesmos, pois nossas mentes e corpos refletem as leis e a beleza do universo.
+                    Somos a manifestação do universo tentando entender a si mesmo, e, ao explorarmos nossos pensamentos e emoções, exploramos, de certa forma, o infinito que nos cerca.</p>
+            </div>
+        </article>
+
+        <article class="post">
+            <h2>Em busca do desconhecido</h2>
+            <div class="post-content">
+                <img src="images/piramide.jpg" alt="Imagem de uma piramide">
+                <p>Há algo no desconhecido que atrai, como um imã que não vemos, mas sentimos. É o desejo de ir além do que já sabemos, de encontrar respostas para perguntas que talvez nem tenhamos formulado ainda. Na escuridão do que não conhecemos, há um universo inteiro de possibilidades.</p>
+                <br>
+                <p>Cada passo em direção ao novo é uma pequena revolução interna. Não é apenas o mundo que muda; somos nós que nos transformamos. O desconhecido não é apenas um destino, mas um espelho que reflete nossas maiores curiosidades e, às vezes, nossos maiores medos.</p>
+                <br>
+                <p>Em busca do desconhecido, desafiamos os limites do conforto e do previsível. Arriscamos, erramos, mas aprendemos. Não se trata apenas de encontrar algo lá fora, mas de descobrir partes de nós mesmos que estavam escondidas, esperando para serem vistas.</p>
+                <br>
+                <p>E é isso que torna essa jornada tão fascinante. Não há garantias, mas há algo maior: a promessa de que, ao explorar o desconhecido, encontramos não apenas o mundo, mas também a nossa própria essência.</p>
+            </div>
+        </article>
+
+        <article class="post">
+            <h2>Ecos do Abismo</h2>
+            <div class="post-meta">Publicado em 17 de novembro de 2024</div>
+            <div class="post-content">
+                <p>O futuro não é algo que chega. Ele é algo que construímos no presente, em cada escolha silenciosa que fazemos.</p>
+                <p>A chave para o desconhecido está em nossas mãos, mas só aqueles dispostos a quebrar o que conhecem têm a coragem de usá-la.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Igor</p>
+    </footer>
+</body>
+</html>
