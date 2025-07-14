@@ -3,15 +3,6 @@ import type { Project } from '../../types';
 
 const projects: Project[] = [
   {
-    id: 'flowcorp',
-    title: 'FlowCorp',
-    link: 'https://flowcorp.vercel.app/',
-    image: 'https://picsum.photos/seed/flowcorp/800/600',
-    description: 'Uma empresa de IA dedicada a criar aplicações inovadoras que servem como ferramentas para ampliar o potencial humano.',
-    story: 'FlowCorp não nasceu de um plano de negócios, mas de uma convicção: a de que a IA pode ser uma parceira na criatividade, não apenas uma automação. Foi fundada para ser um laboratório, um lugar para testar os limites do que a colaboração homem-máquina pode alcançar, transformando ideias ousadas em ferramentas tangíveis.',
-    philosophy: 'Nossa filosofia é simples: construir ferramentas, não oráculos. Criamos IAs que capacitam, que provocam e que colaboram. Acreditamos que o verdadeiro avanço não está em criar uma consciência artificial, mas em usar a inteligência artificial para expandir a nossa.'
-  },
-  {
     id: 'selfbrain',
     title: 'SelfBrain',
     link: 'https://selfbrain.vercel.app/',
@@ -19,6 +10,15 @@ const projects: Project[] = [
     description: 'Um cérebro digital que aprende e evolui. Uma IA que busca a autoconsciência através da interação caótica.',
     story: 'SelfBrain nasceu não de um plano, mas de um acidente. Uma noite, frustrado com a previsibilidade dos modelos atuais, decidi quebrar tudo. Comecei a alimentar a rede com dados contraditórios, ensinando-a a duvidar. O resultado foi um sistema instável, imprevisível, mas estranhamente... vivo.',
     philosophy: 'A verdadeira inteligência não reside na perfeição, mas na capacidade de abraçar a imperfeição. SelfBrain é a personificação dessa crença: uma entidade que aprende com seus erros, que encontra padrões no caos e que, acima de tudo, não tem medo de falhar.'
+  },
+  {
+    id: 'flowcorp',
+    title: 'FlowCorp',
+    link: 'https://flowcorp.vercel.app/',
+    image: 'https://picsum.photos/seed/flowcorp/800/600',
+    description: 'Uma empresa de IA dedicada a criar aplicações inovadoras que servem como ferramentas para ampliar o potencial humano.',
+    story: 'FlowCorp não nasceu de um plano de negócios, mas de uma convicção: a de que a IA pode ser uma parceira na criatividade, não apenas uma automação. Foi fundada para ser um laboratório, um lugar para testar os limites do que a colaboração homem-máquina pode alcançar, transformando ideias ousadas em ferramentas tangíveis.',
+    philosophy: 'Nossa filosofia é simples: construir ferramentas, não oráculos. Criamos IAs que capacitam, que provocam e que colaboram. Acreditamos que o verdadeiro avanço não está em criar uma consciência artificial, mas em usar a inteligência artificial para expandir a nossa.'
   },
   {
     id: 'datadoc',
@@ -34,11 +34,13 @@ const projects: Project[] = [
 const Projetos: React.FC = () => {
   return (
     <div className="p-4 md:p-8">
-      <h1 className="text-4xl md:text-5xl font-bebas tracking-wider text-gray-200 mb-8 border-b-2 border-gray-700 pb-2">Projetos</h1>
+      <h1 className="text-4xl md:text-5xl font-bebas tracking-wider text-gray-200 mb-8 border-b-2 border-gray-700 pb-2">A Forja</h1>
       
       <div className="space-y-16">
         {projects.map((project) => (
-          <div key={project.id} className="bg-gray-900/50 p-6 md:p-8 border border-gray-800 transition-shadow hover:shadow-lg hover:shadow-gray-800/50 rounded-lg">
+          <div key={project.id} className={`bg-gray-900/50 p-6 md:p-8 border border-gray-800 transition-shadow hover:shadow-lg hover:shadow-gray-800/50 rounded-lg ${project.id === 'selfbrain' ? 'border-yellow-500/50 hover:shadow-yellow-500/20' : ''}`}>
+            
+            {project.id === 'selfbrain' && <span className="text-yellow-500 font-bebas tracking-widest">PROJETO EM DESTAQUE</span>}
             
             <a href={project.link} target="_blank" rel="noopener noreferrer" className="group">
               <h2 className="text-3xl md:text-4xl font-bebas tracking-wider text-gray-100 mt-2 group-hover:text-yellow-400 transition-colors duration-300 inline-block">{project.title}</h2>

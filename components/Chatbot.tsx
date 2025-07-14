@@ -16,7 +16,7 @@ const ChatbotIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => (
 
 const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([
-        { sender: 'bot', text: "Eu sou uma centelha de Hendrix. Qual problema vamos resolver hoje?" }
+        { sender: 'bot', text: "Eu sou o Mini Hendrix. Como posso te surpreender hoje?" }
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
