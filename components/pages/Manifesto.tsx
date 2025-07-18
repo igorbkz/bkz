@@ -3,8 +3,8 @@ import React from 'react';
 const Manifesto: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
-      <h1 className="text-8xl md:text-9xl font-bebas tracking-widest text-white animate-fade-in-down">
-        BKZ
+      <h1 className="text-6xl md:text-7xl font-mono font-bold text-white animate-fade-in-down">
+        Igor
       </h1>
       <p className="mt-8 text-2xl md:text-3xl text-gray-200 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
         Construo máquinas que pensam.

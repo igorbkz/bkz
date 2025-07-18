@@ -11,8 +11,8 @@ const Header: React.FC = () => {
       <header className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between h-20 border-b border-gray-800">
-            <a href="#" onClick={handleLogoClick} className="text-2xl font-bebas tracking-widest text-white hover:text-gray-300 transition-colors">
-              bkzkkmkm
+            <a href="#" onClick={handleLogoClick} className="text-3xl font-mono font-bold text-white hover:text-gray-300 transition-colors">
+              Igor
             </a>
           </div>
         </div>

@@ -2,23 +2,22 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import type { ChatMessage } from '../types';
 import { sendMessageToAI } from '../services/geminiService';
 
-const CHAT_HISTORY_KEY = 'bkz-chat-history';
+const CHAT_HISTORY_KEY = 'igor-chat-history';
 
 const getInitialMessages = (): ChatMessage[] => {
-    const welcomeMessage: ChatMessage = { sender: 'bot', text: "Eu sou o Mini Hendrix. Como posso te surpreender hoje?" };
     try {
         const savedHistory = localStorage.getItem(CHAT_HISTORY_KEY);
         if (savedHistory) {
             const parsedHistory = JSON.parse(savedHistory) as ChatMessage[];
             if (Array.isArray(parsedHistory) && parsedHistory.length > 0) {
-                return [welcomeMessage, ...parsedHistory];
+                return parsedHistory;
             }
         }
     } catch (error) {
         console.error("Failed to load chat history:", error);
         localStorage.removeItem(CHAT_HISTORY_KEY);
     }
-    return [welcomeMessage];
+    return [];
 };
 
 
@@ -51,10 +50,9 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     
     useEffect(() => {
         try {
-            const historyToSave = messages.slice(1); // Exclude static welcome message
-            const recentHistory = historyToSave.slice(-10); // Keep only the last 10
-            if (recentHistory.length > 0) {
-                 localStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(recentHistory));
+            const historyToSave = messages.slice(-20); // Keep only the last 20 messages
+            if (historyToSave.length > 0) {
+                 localStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(historyToSave));
             } else {
                  localStorage.removeItem(CHAT_HISTORY_KEY);
             }
@@ -85,10 +83,10 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     };
     
     return (
-        <div className="fixed bottom-24 right-5 w-full max-w-sm h-[60vh] bg-black border border-gray-700 rounded-lg shadow-2xl flex flex-col z-50 animate-fade-in-up" role="dialog" aria-modal="true" aria-labelledby="chat-heading">
-            <div className="flex justify-between items-center p-3 border-b border-gray-700 bg-gray-900 rounded-t-lg">
+        <div className="fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-5 w-full sm:max-w-lg h-full sm:h-[80vh] sm:max-h-[700px] bg-black border-gray-700 sm:rounded-lg shadow-2xl flex flex-col z-50 animate-fade-in-up" role="dialog" aria-modal="true" aria-labelledby="chat-heading">
+            <div className="flex justify-between items-center p-4 border-b border-gray-700 bg-gray-900 sm:rounded-t-lg">
                 <h3 id="chat-heading" className="font-bebas tracking-wider text-lg text-yellow-500">Mini-Hendrix</h3>
-                <button onClick={onClose} className="text-gray-400 hover:text-white" aria-label="Fechar chat">&times;</button>
+                <button onClick={onClose} className="text-gray-400 hover:text-white text-3xl leading-none" aria-label="Fechar chat">&times;</button>
             </div>
             <div className="flex-1 p-4 overflow-y-auto space-y-4">
                 {messages.map((msg, index) => (
@@ -118,7 +116,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyPress={handleKeyPress}
-                        placeholder="Desafie a IA..."
+                        placeholder=""
                         className="flex-1 bg-gray-800 text-white placeholder-gray-500 px-3 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                         disabled={isLoading}
                         aria-label="Sua mensagem para a IA"
@@ -126,11 +124,11 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     <button 
                         onClick={handleSend} 
                         disabled={isLoading} 
-                        className="bg-yellow-500 text-black px-3 py-2 rounded-r-md hover:bg-yellow-400 disabled:bg-gray-600 flex items-center justify-center"
+                        className="bg-yellow-500 text-black px-4 py-2 rounded-r-md hover:bg-yellow-400 disabled:bg-gray-600 flex items-center justify-center"
                         aria-label="Enviar"
                     >
                          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m-7 7l7-7 7 7" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                         </svg>
                     </button>
                 </div>
