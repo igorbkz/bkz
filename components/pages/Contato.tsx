@@ -2,10 +2,8 @@ import React from 'react';
 
 const Contato: React.FC = () => {
   return (
-    <div className="flex items-center justify-center h-[calc(100vh-200px)] px-4">
+    <div className="flex items-center justify-center min-h-[50vh] px-4">
       <div className="text-center">
-        <h1 className="text-4xl md:text-5xl font-bebas tracking-wider text-gray-200 mb-4">Contato</h1>
-        <p className="text-gray-400 mb-6">(você pode se decepcionar)</p>
         <a 
           href="https://x.com/igorbiccas" 
           target="_blank" 
