@@ -3,11 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Igor</title>
+    <title>Igor Biccas — Forja</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              mono: ['"Roboto Mono"', 'monospace'],
+              display: ['"Bebas Neue"', 'sans-serif'],
+              grotesk: ['"Space Grotesk"', 'sans-serif'],
+            },
+            colors: {
+              carbon: '#050505',
+              ember: '#f59e0b',
+              aurora: '#38bdf8',
+              steel: '#111111',
+            },
+            boxShadow: {
+              neon: '0 0 40px rgba(245, 158, 11, 0.25)',
+            },
+            animation: {
+              fade: 'fadeIn 0.8s ease forwards',
+              blur: 'blurPulse 6s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: 0, transform: 'translateY(16px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+              },
+              blurPulse: {
+                '0%, 100%': { filter: 'blur(80px) opacity(0.3)' },
+                '50%': { filter: 'blur(100px) opacity(0.5)' },
+              },
+            },
+          },
+        },
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
       html {
         scroll-behavior: smooth;
@@ -31,7 +67,7 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-black text-white antialiased">
+  <body class="bg-carbon text-white antialiased">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
