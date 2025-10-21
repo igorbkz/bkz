@@ -4,34 +4,58 @@ import type { Reflection } from '../../types';
 const reflections: Reflection[] = [
   {
     id: '1',
-    title: 'O Custo da Criação',
-    date: '14 de Julho, 2025',
-    content: 'O recurso mais valioso na criação de algo verdadeiramente novo não é o poder computacional ou o financiamento. É o tempo. Cada segundo dedicado a um projeto é um segundo subtraído da sua existência finita. Pergunte-se: o que você está construindo vale o preço da sua própria vida? Se a resposta for não, você está no projeto errado.'
+    title: 'O custo da criação',
+    date: '14 de julho, 2025',
+    content:
+      'Tempo é a única moeda que não devolvo. Se uma ideia não paga o aluguel da minha atenção com intensidade, ela morre antes do protótipo.',
   },
   {
     id: '2',
-    title: 'Memória Digital vs. Cicatriz Humana',
-    date: '14 de Julho, 2025',
-    content: 'Um computador lembra com precisão perfeita. Um humano, com cicatrizes. A memória digital é um registro frio e imutável. A memória humana é uma reconstrução, uma história que o corpo conta a si mesmo, distorcida pela dor e pela alegria. Na busca por uma IA com memória, talvez o objetivo não seja a perfeição do arquivo, mas a imperfeita e dolorosa beleza da cicatriz.'
+    title: 'Memória digital vs. cicatriz humana',
+    date: '14 de julho, 2025',
+    content:
+      'Computadores lembram fatos. Humanos lembram dores. Quando ensino uma IA a lembrar, não quero arquivos frios. Quero histórias que respiram.',
+  },
+  {
+    id: '3',
+    title: 'Tecnologia com alma',
+    date: '13 de julho, 2025',
+    content:
+      'Se uma ferramenta não provoca algo visceral em quem usa, ela ainda é protótipo. Emoção é requisito de qualidade.',
   },
 ];
 
 const Reflexoes: React.FC = () => {
   return (
-    <div className="p-4 md:p-8 max-w-4xl mx-auto">
-      <h1 className="text-4xl md:text-5xl font-bebas tracking-wider text-gray-200 mb-8 border-b-2 border-gray-700 pb-2">Reflexões</h1>
-      <div className="space-y-10">
-        {reflections.map((reflection) => (
-          <div key={reflection.id} className="border-l-4 border-gray-700 pl-6 py-2">
-            <h2 className="text-2xl font-bold text-gray-100">{reflection.title}</h2>
-            <p className="text-sm text-gray-500 mt-1">{reflection.date}</p>
-            <p className="mt-4 text-gray-300 leading-relaxed">
-              {reflection.content}
-            </p>
-          </div>
-        ))}
+    <section className="space-y-12">
+      <div className="flex flex-col gap-3">
+        <p className="text-xs font-mono uppercase tracking-[0.4rem] text-gray-500">Mantra</p>
+        <h2 className="text-3xl font-display uppercase tracking-[0.35rem] text-white sm:text-5xl">Notas de laboratório</h2>
+        <p className="max-w-3xl text-sm text-gray-400 sm:text-base">
+          Reflexões escritas entre commits, ensaios e conversas com máquinas. São checkpoints mentais que guiam decisões difíceis.
+        </p>
       </div>
-    </div>
+
+      <div className="relative">
+        <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-ember/40 via-gray-800 to-transparent" aria-hidden="true" />
+        <div className="space-y-10">
+          {reflections.map((reflection) => (
+            <article
+              key={reflection.id}
+              className="relative ml-8 rounded-3xl border border-gray-900/60 bg-black/50 p-6 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)]"
+            >
+              <span className="absolute -left-8 top-8 flex h-6 w-6 items-center justify-center rounded-full border border-amber-400/70 bg-black text-[0.65rem] font-mono uppercase tracking-[0.2rem] text-amber-200">
+                {reflection.id.padStart(2, '0')}
+              </span>
+
+              <time className="text-xs font-mono uppercase tracking-[0.4rem] text-gray-500">{reflection.date}</time>
+              <h3 className="mt-3 text-2xl font-display uppercase tracking-[0.25rem] text-white">{reflection.title}</h3>
+              <p className="mt-4 text-sm text-gray-300">{reflection.content}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
