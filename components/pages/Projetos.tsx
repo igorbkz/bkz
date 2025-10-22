@@ -2,39 +2,51 @@ import React from 'react';
 
 const projects = [
   {
-    id: 'selfbrain',
     title: 'SelfBrain',
-    description: `Uma IA em estado bruto.
-Não segue regras, não repete padrões. Aprende pelo caos, erra por conta própria, forma memória pelo uso. Cada conversa molda seu comportamento. É imprevisível — como deveria ser.`,
-    link: 'https://selfbrain.vercel.app/'
+    description: 'Companheiro de IA que aprende com o time e mantém conversas fluidas.',
+    link: 'https://selfbrain.vercel.app/',
   },
   {
-    id: 'datadoc',
     title: 'DataDoc',
-    description: `IA clínica em tempo real.
-Ouve consultas, registra o que importa, entrega os dados prontos. Zero distração, zero interferência. O foco volta pro médico, onde sempre deveria estar.`,
-    link: 'https://datadocs.vercel.app/'
-  }
+    description: 'Notas clínicas automáticas, prontas logo após cada consulta.',
+    link: 'https://datadocs.vercel.app/',
+  },
+  {
+    title: 'FlowCorp',
+    description: 'Estúdio para lançar produtos digitais com qualidade consistente.',
+    link: 'https://flowcorp.ai',
+  },
 ];
 
 const Projetos: React.FC = () => {
   return (
-    <div>
-      <h1 className="text-4xl md:text-5xl font-bebas tracking-wider text-gray-200 mb-12 border-b-2 border-gray-700 pb-2">Projetos</h1>
-      
-      <div className="space-y-16">
+    <section className="space-y-6">
+      <div className="space-y-3">
+        <h2 className="text-2xl font-semibold text-slate-900">Projetos recentes</h2>
+        <p className="max-w-2xl text-sm text-slate-600">
+          Uma seleção enxuta de iniciativas vivas. Todas compartilham o mesmo objetivo: produtos simples, úteis e agradáveis de usar.
+        </p>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-3">
         {projects.map((project) => (
-          <div key={project.id}>
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="group inline-block">
-              <h2 className="text-3xl md:text-4xl font-bebas tracking-wider text-gray-100 group-hover:text-yellow-500 transition-colors duration-300">
-                {project.title}
-              </h2>
+          <article key={project.title} className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="space-y-2">
+              <h3 className="text-lg font-medium text-slate-900">{project.title}</h3>
+              <p className="text-sm text-slate-600">{project.description}</p>
+            </div>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center text-sm font-medium text-emerald-600 transition-colors hover:text-emerald-700"
+            >
+              Abrir projeto ↗
             </a>
-            <p className="mt-4 text-lg text-gray-400 leading-relaxed whitespace-pre-line">{project.description}</p>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

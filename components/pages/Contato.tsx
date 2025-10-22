@@ -2,26 +2,25 @@ import React from 'react';
 
 const Contato: React.FC = () => {
   return (
-    <div className="flex items-center justify-center min-h-[50vh] px-4">
-      <div className="text-center">
-        <a 
-          href="https://x.com/igorbiccas" 
-          target="_blank" 
+    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 className="text-2xl font-semibold text-slate-900">Vamos conversar</h2>
+      <p className="mt-3 max-w-xl text-sm text-slate-600">
+        Conte-me sobre a próxima ideia que precisa ganhar vida. Respondo em até um dia útil.
+      </p>
+      <div className="mt-6 space-y-4 text-sm text-slate-700">
+        <a href="mailto:oi@igorbiccas.com" className="block rounded-full bg-slate-900 px-4 py-3 text-center text-white transition-colors hover:bg-slate-700">
+          oi@igorbiccas.com
+        </a>
+        <a
+          href="https://cal.com/igorbiccas/30min"
+          target="_blank"
           rel="noopener noreferrer"
-          aria-label="Encontre-me no X"
-          className="inline-block text-gray-400 hover:text-white transition-colors duration-300"
+          className="block rounded-full border border-slate-300 px-4 py-3 text-center text-slate-700 transition-colors hover:border-slate-400 hover:text-slate-900"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-24 w-24"
-            viewBox="0 0 1200 1227"
-            fill="currentColor"
-          >
-            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z"/>
-          </svg>
+          Marcar uma chamada de 30 minutos ↗
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 

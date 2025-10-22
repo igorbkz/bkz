@@ -1,22 +1,53 @@
 import React from 'react';
 
-const Header: React.FC = () => {
+const links = [
+  { href: '#manifesto', label: 'Início' },
+  { href: '#projetos', label: 'Projetos' },
+  { href: '#forja', label: 'Processo' },
+  { href: '#reflexoes', label: 'Notas' },
+  { href: '#contato', label: 'Contato' },
+];
 
-  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+const Header: React.FC = () => {
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-      <header className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between h-20 border-b border-gray-800">
-            <a href="#" onClick={handleLogoClick} className="text-3xl font-mono font-bold text-white hover:text-gray-300 transition-colors">
-              Igor
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6 sm:px-10">
+        <a
+          href="#"
+          onClick={handleLogoClick}
+          className="text-lg font-semibold tracking-tight text-slate-900 transition-colors hover:text-slate-600"
+          aria-label="Voltar ao topo"
+        >
+          Igor Biccas
+        </a>
+
+        <nav className="hidden gap-6 text-sm text-slate-600 sm:flex">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="rounded-full px-3 py-1 transition-colors hover:bg-slate-100 hover:text-slate-900"
+            >
+              {link.label}
             </a>
-          </div>
-        </div>
-      </header>
+          ))}
+        </nav>
+
+        <a
+          href="https://x.com/igorbiccas"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden rounded-full border border-slate-300 px-4 py-2 text-xs font-medium text-slate-600 transition-colors hover:border-slate-400 hover:text-slate-900 sm:inline-flex"
+        >
+          Estou no X ↗
+        </a>
+      </div>
+    </header>
   );
 };
 
