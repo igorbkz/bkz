@@ -1,9 +1,8 @@
 import React from 'react';
 
 const links = [
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#projetos', label: 'Projetos' },
-  { href: '#visao', label: 'Visão' },
+  { href: '#perfil', label: 'Perfil' },
+  { href: '#foco', label: 'Agora' },
   { href: '#contato', label: 'Contato' },
 ];
 
@@ -14,30 +13,30 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-black/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-5xl items-center justify-between px-6">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-black/60 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
         <a
           href="#"
           onClick={handleLogoClick}
-          className="text-sm font-medium tracking-[0.35em] text-slate-200 transition hover:text-white"
+          className="text-xs uppercase tracking-[0.5em] text-slate-100 transition hover:text-white"
           aria-label="Voltar ao topo"
         >
-          IGOR BICCAS
+          Igor
         </a>
 
-        <nav className="hidden items-center gap-8 text-xs tracking-[0.3em] text-slate-400 sm:flex">
+        <nav className="hidden gap-6 text-[0.65rem] uppercase tracking-[0.45em] text-slate-500 sm:flex">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="transition hover:text-slate-100">
+            <a key={link.href} href={link.href} className="transition hover:text-slate-200">
               {link.label}
             </a>
           ))}
         </nav>
 
         <a
-          href="#contato"
-          className="inline-flex items-center rounded-full border border-white/15 px-5 py-2 text-xs tracking-[0.35em] text-slate-100 transition hover:border-white/40"
+          href="mailto:oi@igorbiccas.com"
+          className="rounded-full border border-white/10 px-4 py-2 text-[0.65rem] uppercase tracking-[0.45em] text-slate-200 transition hover:border-white/30 hover:text-white"
         >
-          Contato
+          Escreva
         </a>
       </div>
     </header>

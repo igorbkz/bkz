@@ -5,18 +5,27 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(160deg, rgba(15, 15, 15, 0.85), rgba(5, 5, 5, 1));
+  background: #050505;
   color: #e2e8f0;
   font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   position: relative;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.7;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: -1;
 }
 
 ::selection {
-  background: rgba(148, 163, 184, 0.35);
+  background: rgba(245, 158, 11, 0.35);
   color: #0b0b0b;
 }
 
@@ -25,14 +34,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(12, 12, 12, 0.85);
+  background: rgba(15, 15, 15, 0.85);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.5);
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.45), rgba(245, 158, 11, 0.45));
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.6);
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.65), rgba(245, 158, 11, 0.65));
 }
