@@ -12,7 +12,7 @@ const initialMessages: ChatMessage[] = [
 const ChatbotIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <button
     type="button"
-    className="fixed bottom-5 right-5 flex h-14 w-14 items-center justify-center rounded-full bg-slate-900 text-white shadow-lg transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+    className="fixed bottom-5 right-5 flex h-14 w-14 items-center justify-center rounded-full bg-slate-900 text-white shadow-soft transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
     onClick={onClick}
     aria-label="Abrir chat"
   >
@@ -63,7 +63,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-50 flex h-[70vh] w-full flex-col border-t border-slate-200 bg-white shadow-2xl sm:inset-auto sm:bottom-20 sm:right-5 sm:h-[520px] sm:w-96 sm:rounded-3xl sm:border"
+      className="fixed inset-x-0 bottom-0 z-50 flex h-[70vh] w-full flex-col border-t border-slate-200 bg-white/95 backdrop-blur-sm shadow-2xl sm:inset-auto sm:bottom-20 sm:right-5 sm:h-[520px] sm:w-[360px] sm:rounded-3xl sm:border"
       role="dialog"
       aria-modal="true"
       aria-labelledby="chat-heading"
@@ -90,7 +90,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
               className={`max-w-[80%] rounded-2xl px-4 py-3 shadow-sm ${
-                msg.sender === 'user' ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-700'
+                msg.sender === 'user' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700'
               }`}
             >
               {msg.text}
@@ -110,7 +110,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="border-t border-slate-200 bg-white px-4 py-4">
+      <div className="border-t border-slate-200 bg-white/80 px-4 py-4">
         <div className="flex items-center gap-2">
           <input
             type="text"

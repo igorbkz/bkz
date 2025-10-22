@@ -10,10 +10,15 @@
         theme: {
           extend: {
             fontFamily: {
-              mono: ['"Roboto Mono"', 'monospace'],
+              sans: ['"Inter"', '"SF Pro Text"', 'system-ui', 'sans-serif'],
+              display: ['"Inter"', '"SF Pro Display"', 'system-ui', 'sans-serif'],
             },
             colors: {
               cloud: '#f8fafc',
+              pearl: '#f4f7fb',
+            },
+            boxShadow: {
+              soft: '0 20px 45px -24px rgba(15, 23, 42, 0.28)',
             },
           },
         },
@@ -22,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -42,7 +47,7 @@
     </script>
     <link rel="stylesheet" href="/index.css" />
   </head>
-  <body class="bg-cloud text-slate-900 antialiased">
+  <body class="bg-cloud font-sans text-slate-900 antialiased">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
