@@ -23,11 +23,13 @@ const getInitialMessages = (): ChatMessage[] => {
 const ChatbotIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <button
     type="button"
-    className="fixed bottom-6 right-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-rose-500 text-black shadow-lg transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 z-50"
+    className="group relative fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-amber-400 via-rose-400 to-sky-400 text-black shadow-[0_0_55px_rgba(244,114,182,0.4)] transition-transform duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
     onClick={onClick}
     aria-label="Abrir transmissão com Hendrix"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <span className="absolute inset-0 animate-pulse-soft rounded-full bg-gradient-to-br from-white/25 via-transparent to-white/10 opacity-70" aria-hidden="true" />
+    <span className="absolute -inset-2 rounded-full border border-white/50 opacity-40" aria-hidden="true" />
+    <svg xmlns="http://www.w3.org/2000/svg" className="relative h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4v-4z" />
     </svg>
   </button>
@@ -84,30 +86,30 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex h-full w-full flex-col border border-gray-900/60 bg-black/95 sm:inset-auto sm:bottom-24 sm:right-6 sm:h-[75vh] sm:max-h-[680px] sm:w-[420px] sm:rounded-3xl"
+      className="fixed inset-0 z-50 flex h-full w-full flex-col overflow-hidden border border-white/10 bg-[#070717]/95 shadow-[0_25px_70px_rgba(8,7,26,0.7)] backdrop-blur-3xl sm:inset-auto sm:bottom-24 sm:right-6 sm:h-[75vh] sm:max-h-[700px] sm:w-[440px] sm:rounded-[32px]"
       role="dialog"
       aria-modal="true"
       aria-labelledby="chat-heading"
     >
-      <div className="flex items-center justify-between rounded-t-3xl border-b border-gray-900/60 bg-gradient-to-r from-gray-950 via-black to-gray-900 px-4 py-3">
+      <div className="relative flex items-center justify-between border-b border-white/10 bg-gradient-to-r from-[#0b0b1e] via-[#08071a] to-[#120720] px-5 py-4">
         <div>
           <h3 id="chat-heading" className="font-mono text-xs uppercase tracking-[0.4rem] text-amber-200">
             Hendrix Node
           </h3>
-          <p className="text-[0.65rem] text-gray-500">Voz experimental da identidade digital de Igor</p>
+          <p className="text-[0.65rem] text-slate-400">Voz experimental da identidade digital de Igor</p>
         </div>
         <button
           onClick={onClose}
-          className="rounded-full border border-gray-800 p-1 text-gray-400 transition hover:border-amber-400/60 hover:text-white"
+          className="relative flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-slate-400 transition hover:border-amber-400/60 hover:text-white"
           aria-label="Fechar chat"
         >
           ×
         </button>
       </div>
 
-      <div className="flex-1 space-y-4 overflow-y-auto px-4 py-5">
+      <div className="flex-1 space-y-4 overflow-y-auto px-5 py-6">
         {messages.length === 0 && !isLoading && (
-          <div className="rounded-2xl border border-dashed border-gray-800/80 bg-black/40 p-4 text-sm text-gray-500">
+          <div className="rounded-2xl border border-dashed border-white/20 bg-white/[0.02] p-5 text-sm text-slate-400">
             Pergunte sobre visão, estratégia ou as tensões entre humanos e máquinas. Hendrix responde com sinceridade rebelde.
           </div>
         )}
@@ -115,10 +117,10 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         {messages.map((msg, index) => (
           <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
-              className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm shadow-md ${
+              className={`relative max-w-[80%] rounded-3xl px-4 py-3 text-sm shadow-[0_12px_30px_rgba(8,7,26,0.45)] ${
                 msg.sender === 'user'
-                  ? 'bg-gradient-to-br from-amber-500 to-rose-500 text-black'
-                  : 'border border-gray-900/60 bg-gray-900/60 text-gray-100'
+                  ? 'bg-gradient-to-br from-amber-400 via-rose-400 to-sky-400 text-black'
+                  : 'border border-white/10 bg-white/[0.03] text-white'
               }`}
             >
               {msg.text}
@@ -128,32 +130,33 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
         {isLoading && (
           <div className="flex justify-start">
-            <div className="flex items-center gap-2 rounded-2xl border border-gray-900/60 bg-gray-900/60 px-4 py-3 text-sm text-gray-200" aria-live="polite">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-amber-400" />
-              <span className="h-2 w-2 animate-pulse rounded-full bg-amber-400" style={{ animationDelay: '0.15s' }} />
-              <span className="h-2 w-2 animate-pulse rounded-full bg-amber-400" style={{ animationDelay: '0.3s' }} />
+            <div className="flex items-center gap-2 rounded-3xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-slate-200" aria-live="polite">
+              <span className="h-2 w-2 animate-ping rounded-full bg-amber-400" />
+              <span className="h-2 w-2 animate-ping rounded-full bg-amber-400" style={{ animationDelay: '0.2s' }} />
+              <span className="h-2 w-2 animate-ping rounded-full bg-amber-400" style={{ animationDelay: '0.4s' }} />
+              <span className="text-xs uppercase tracking-[0.4em] text-slate-400">Gerando</span>
             </div>
           </div>
         )}
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="border-t border-gray-900/60 bg-black/70 p-4">
-        <div className="flex items-center gap-2">
+      <div className="border-t border-white/10 bg-[#050510]/80 p-5">
+        <div className="flex items-center gap-3">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Solte uma hipótese ou uma fricção..."
-            className="flex-1 rounded-full border border-gray-900/60 bg-gray-950/70 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-amber-400/60 focus:outline-none"
+            className="flex-1 rounded-full border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-amber-400/60 focus:outline-none"
             disabled={isLoading}
             aria-label="Sua mensagem para a IA"
           />
           <button
             onClick={handleSend}
             disabled={isLoading}
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-rose-500 text-black transition hover:from-amber-400 hover:to-rose-400 disabled:opacity-60"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 via-rose-400 to-sky-400 text-black shadow-[0_0_35px_rgba(244,114,182,0.45)] transition hover:from-amber-300 hover:via-rose-300 hover:to-sky-300 disabled:opacity-60"
             aria-label="Enviar"
             type="button"
           >
