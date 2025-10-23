@@ -25,7 +25,7 @@ const ChatbotIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => (
     type="button"
     className="fixed bottom-6 right-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-rose-500 text-black shadow-lg transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 z-50"
     onClick={onClick}
-    aria-label="Abrir chat com Mini-Hendrix"
+    aria-label="Abrir transmissão com Hendrix"
   >
     <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4v-4z" />
@@ -92,9 +92,9 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       <div className="flex items-center justify-between rounded-t-3xl border-b border-gray-900/60 bg-gradient-to-r from-gray-950 via-black to-gray-900 px-4 py-3">
         <div>
           <h3 id="chat-heading" className="font-mono text-xs uppercase tracking-[0.4rem] text-amber-200">
-            Mini-Hendrix
+            Hendrix Node
           </h3>
-          <p className="text-[0.65rem] text-gray-500">Assistente temperamental do laboratório</p>
+          <p className="text-[0.65rem] text-gray-500">Voz experimental da identidade digital de Igor</p>
         </div>
         <button
           onClick={onClose}
@@ -108,7 +108,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       <div className="flex-1 space-y-4 overflow-y-auto px-4 py-5">
         {messages.length === 0 && !isLoading && (
           <div className="rounded-2xl border border-dashed border-gray-800/80 bg-black/40 p-4 text-sm text-gray-500">
-            Solte uma pergunta sobre IA, design ou construção de produtos. Ele responde sem filtro.
+            Pergunte sobre visão, estratégia ou as tensões entre humanos e máquinas. Hendrix responde com sinceridade rebelde.
           </div>
         )}
 
@@ -145,7 +145,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Pergunte algo insano..."
+            placeholder="Solte uma hipótese ou uma fricção..."
             className="flex-1 rounded-full border border-gray-900/60 bg-gray-950/70 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-amber-400/60 focus:outline-none"
             disabled={isLoading}
             aria-label="Sua mensagem para a IA"
