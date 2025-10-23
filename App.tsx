@@ -7,6 +7,12 @@ const statusSignals = [
   'Ideias para missões de impacto, não para volume',
 ];
 
+const heroPillars = [
+  'Estratégia sensorial',
+  'Arquitetura emocional',
+  'Inteligência sistêmica',
+];
+
 const manifestoStatements = [
   {
     title: 'Clareza concisa',
@@ -98,151 +104,168 @@ const connectionLinks = [
 
 const App: React.FC = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#050505] text-slate-100">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-[-280px] h-[520px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(56,189,248,0.16),_transparent_60%)] blur-3xl" />
-        <div className="absolute bottom-[-240px] right-[-200px] h-[540px] w-[540px] rounded-full bg-[radial-gradient(circle,_rgba(245,158,11,0.18),_transparent_65%)] blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:80px_80px]" />
+    <div className="app-root">
+      <div className="app-decoration" aria-hidden>
+        <div className="app-decoration__aurora app-decoration__aurora--one" />
+        <div className="app-decoration__aurora app-decoration__aurora--two" />
+        <div className="app-decoration__aurora app-decoration__aurora--three" />
+        <div className="cosmic-grid" />
+        <div className="floating-lights">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
       </div>
 
-      <div className="relative z-10">
-        <Header />
+      <Header />
 
-        <main className="mx-auto flex max-w-5xl flex-col gap-28 px-6 pb-32 pt-28">
-          <section id="manifesto" className="space-y-12">
-            <div className="flex flex-wrap gap-3 text-[0.65rem] uppercase tracking-[0.45em] text-slate-500">
-              {statusSignals.map((signal) => (
-                <span key={signal} className="rounded-full border border-white/10 px-4 py-2 text-slate-300/80">
-                  {signal}
-                </span>
-              ))}
-            </div>
+      <main className="page-body">
+        <section id="manifesto" className="section hero-section">
+          <div className="hero-grid">
+            <div className="hero-text">
+              <div className="status-belt">
+                {statusSignals.map((signal) => (
+                  <span key={signal} className="status-chip">
+                    {signal}
+                  </span>
+                ))}
+              </div>
 
-            <div className="space-y-8">
-              <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-slate-50 sm:text-6xl">
-                Construindo futuros, desvendando o invisível.
+              <h1 className="hero-title">
+                Construindo futuros,
+                <span>desvendando o invisível.</span>
               </h1>
 
-              <p className="max-w-3xl text-lg text-slate-300">
+              <p className="hero-description">
                 Igor é um pensador, estrategista e catalisador de mudança. Com uma mente que investiga os mecanismos ocultos da sociedade e da tecnologia, ele redesenha sistemas para que ideias disruptivas encontrem impacto real.
               </p>
 
-              <div className="max-w-3xl rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-slate-300 backdrop-blur">
-                <p className="text-sm text-slate-400">A brisa:</p>
-                <p className="mt-3 text-base text-slate-200">
-                  Contexto é poder. Igor mapeia padrões de influência para provocar transformações silenciosas, porém irreversíveis.
-                </p>
+              <div className="hero-highlight">
+                <span className="hero-highlight__label">A brisa</span>
+                <p>Contexto é poder. Igor mapeia padrões de influência para provocar transformações silenciosas, porém irreversíveis.</p>
+              </div>
+
+              <div className="hero-pillars">
+                {heroPillars.map((pillar) => (
+                  <span key={pillar}>{pillar}</span>
+                ))}
               </div>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-3">
-              {manifestoStatements.map((statement) => (
-                <article
-                  key={statement.title}
-                  className="flex flex-col rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:border-white/20 hover:bg-white/[0.07]"
-                >
-                  <h2 className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-400">
-                    {statement.title}
-                  </h2>
-                  <p className="mt-4 text-sm text-slate-300/90">{statement.body}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section id="legado" className="space-y-10">
-            <div className="flex flex-col gap-4 text-slate-300">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.45em] text-slate-500">
-                <span>Legado</span>
-                <span className="text-slate-600">Projetos em fluxo contínuo</span>
+            <div className="hero-visual">
+              <div className="hero-orb">
+                <div className="hero-orb__ring" />
+                <div className="hero-orb__core">
+                  <span className="hero-orb__tag">Igor Biccas</span>
+                  <p className="hero-orb__statement">Laboratório pessoal para futuros desejáveis.</p>
+                  <p className="hero-orb__meta">Arquiteturas de atenção calibradas para despertar coragem e beleza aplicada.</p>
+                </div>
               </div>
-              <p className="max-w-3xl text-base text-slate-400">
-                Não é sobre linhas de código, é sobre a direção que elas inauguram. Cada projeto é uma plataforma para ideias crescerem com autonomia, responsabilidade e beleza.
-              </p>
-            </div>
 
-            <div className="grid gap-6 lg:grid-cols-3">
-              {projectShowcase.map((project) => (
-                <article
-                  key={project.name}
-                  className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur transition hover:border-white/20 hover:bg-white/[0.07]"
-                >
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-lg font-medium text-slate-100">{project.name}</h3>
-                      <p className="text-sm text-amber-300/80">{project.mantra}</p>
-                    </div>
-                    <p className="text-sm text-slate-300/90">{project.description}</p>
-                    <p className="text-sm text-slate-400">{project.impact}</p>
-                  </div>
-                  <a
-                    href={project.linkHref}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-slate-200 transition hover:text-white"
-                  >
-                    {project.linkLabel}
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </article>
-              ))}
+              <div className="hero-visual__caption">
+                Frequências de atenção sob medida para missões que pedem tato, profundidade e imaginação radical.
+              </div>
             </div>
-          </section>
+          </div>
 
-          <section id="insights" className="space-y-10">
-            <div className="flex items-center justify-between text-xs uppercase tracking-[0.45em] text-slate-500">
-              <h2 className="text-slate-500">Insights</h2>
-              <span className="text-slate-600">Brisas em registro</span>
+          <div className="manifesto-grid">
+            {manifestoStatements.map((statement) => (
+              <article key={statement.title} className="manifesto-card">
+                <span className="manifesto-card__marker" aria-hidden />
+                <h2>{statement.title}</h2>
+                <p>{statement.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="legado" className="section">
+          <div className="section-header">
+            <div className="section-kicker">
+              <span className="section-chip">Legado contínuo</span>
+              <span>Projetos em fluxo permanente</span>
             </div>
+            <h2 className="section-title">
+              Blueprints vivos para futuros audaciosos
+            </h2>
+            <p className="section-description">
+              Não é sobre linhas de código, é sobre a direção que elas inauguram. Cada projeto é uma plataforma para ideias crescerem com autonomia, responsabilidade e beleza.
+            </p>
+          </div>
 
-            <div className="grid gap-5 md:grid-cols-2">
-              {fieldNotes.map((note) => (
-                <article
-                  key={note.title}
-                  className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-white/20 hover:bg-white/[0.07]"
-                >
-                  <h3 className="text-base font-medium text-slate-100">{note.title}</h3>
-                  <p className="mt-3 text-sm text-slate-400">{note.summary}</p>
-                </article>
-              ))}
+          <div className="project-gallery">
+            {projectShowcase.map((project) => (
+              <article key={project.name} className="project-card">
+                <div className="project-card__glow" aria-hidden />
+                <header>
+                  <h3>{project.name}</h3>
+                  <p className="project-card__mantra">{project.mantra}</p>
+                </header>
+                <p className="project-card__description">{project.description}</p>
+                <p className="project-card__impact">{project.impact}</p>
+                <a href={project.linkHref} className="project-card__link">
+                  {project.linkLabel}
+                  <span aria-hidden>→</span>
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="insights" className="section">
+          <div className="section-header">
+            <div className="section-kicker">
+              <span className="section-chip">Insights</span>
+              <span>Brisas em registro</span>
             </div>
-
-            <p className="max-w-3xl text-sm text-slate-500">
+            <h2 className="section-title">Mapas mentais para orientar o agora</h2>
+            <p className="section-description">
               Cada insight é um convite para conversar. Alguns viram artigos, outros se transformam em protótipos ou missões compartilhadas.
             </p>
-          </section>
+          </div>
 
-          <section id="conexao" className="space-y-8">
-            <div className="flex items-center justify-between text-xs uppercase tracking-[0.45em] text-slate-500">
-              <h2 className="text-slate-500">Conexão</h2>
-              <span className="text-slate-600">Atenção vale mais que dinheiro</span>
+          <div className="insight-matrix">
+            {fieldNotes.map((note) => (
+              <article key={note.title} className="insight-card">
+                <div className="insight-card__halo" aria-hidden />
+                <h3>{note.title}</h3>
+                <p>{note.summary}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="conexao" className="section">
+          <div className="section-header">
+            <div className="section-kicker">
+              <span className="section-chip">Conexão</span>
+              <span>Atenção vale mais que dinheiro</span>
             </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              {connectionLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-white/20 hover:bg-white/[0.07]"
-                >
-                  <span className="text-[0.65rem] uppercase tracking-[0.45em] text-slate-500">{link.label}</span>
-                  <p className="mt-4 text-sm text-slate-100 group-hover:text-white">{link.value}</p>
-                </a>
-              ))}
-            </div>
-
-            <p className="max-w-3xl text-sm text-slate-400">
+            <h2 className="section-title">Traga missões que exigem coragem intelectual</h2>
+            <p className="section-description">
               Traga missões que exigem coragem intelectual, ética contextual e beleza aplicada. Vamos explorar ideias que transformam.
             </p>
-          </section>
-        </main>
-
-        <footer className="px-6 pb-16">
-          <div className="mx-auto max-w-5xl border-t border-white/10 pt-6 text-xs text-slate-500">
-            <p>Igor Biccas — laboratório pessoal para futuros que fazem sentido.</p>
           </div>
-        </footer>
 
-        <Chatbot />
-      </div>
+          <div className="connection-grid">
+            {connectionLinks.map((link) => (
+              <a key={link.label} href={link.href} className="connection-card">
+                <span className="connection-card__label">{link.label}</span>
+                <span className="connection-card__value">{link.value}</span>
+                <span className="connection-card__pulse" aria-hidden />
+              </a>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <p>Igor Biccas — laboratório pessoal para futuros que fazem sentido.</p>
+      </footer>
+
+      <Chatbot />
     </div>
   );
 };
